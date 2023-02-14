@@ -1,6 +1,6 @@
 {
   "name": "@increaseone/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "utils",
     "increaseone"
@@ -23,7 +23,11 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "repository": "https://github.com/IncreaseOne/npm-packages.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IncreaseOne/npm-packages.git",
+    "directory": "utils"
+  },
   "dependencies": {
     "date-fns": "^2.29.3"
   },
