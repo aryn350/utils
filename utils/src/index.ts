@@ -1,17 +1,41 @@
-import { format } from "date-fns";
+export { REG_EXP, CURRENCY } from "./constants";
+export type { CurrencyT } from "./constants";
 
-/**
- * 加法运算
- * @param a 数1
- * @param b 数2
- * @returns 结果
- */
-export const add = (a: number, b: number) => a + b;
+export { deepClone } from "./object";
 
-/**
- * 日期格式化
- * @param date 日期
- * @param str 格式化规则
- * @returns
- */
-export const dateFormat = (date: Date, str: string) => format(date, str);
+export { useTimeout, useInterval, sleep, debounce, throttle } from "./timeout";
+
+export { getRandom } from "./math";
+
+export { formatPrice, encryptMobile } from "./format";
+
+export {
+  formatDateTime,
+  getLocalTimezone,
+  checkTimezoneKey,
+} from "./date-time";
+export type { TimezoneKeyT } from "./date-time";
+
+export {
+  isMobile,
+  isEmail,
+  isAppleDevice,
+  isAndroidDevice,
+  isMobileDevice,
+  isWechatBrowser,
+  compareVersion,
+  isImage,
+  isVideo,
+  isPdf,
+  isWord,
+  isExcel,
+} from "./validator";
+
+export {
+  hasClass,
+  addClass,
+  removeClass,
+  callPhone,
+  copyText,
+  readClipboard,
+} from "./dom";
