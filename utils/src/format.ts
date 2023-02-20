@@ -1,3 +1,4 @@
+import queryString from "query-string";
 import type { CurrencyT } from "./constants";
 
 interface FormatPriceOptionsT {
@@ -23,7 +24,7 @@ interface FormatPriceOptionsT {
  *
  * 此函数仅提供适用于大部分场景的用法，如有个性化需求请自行实现。
  */
-export const formatPrice = (price: number, options?: FormatPriceOptionsT) => {
+export function formatPrice(price: number, options?: FormatPriceOptionsT) {
   const { currency, computeMode = "floor", useGrouping = true } = options ?? {};
   let { fractionDigits = 2 } = options ?? {};
   if (fractionDigits < 0) fractionDigits = 2;
@@ -48,11 +49,34 @@ export const formatPrice = (price: number, options?: FormatPriceOptionsT) => {
     maximumFractionDigits: fractionDigits,
     useGrouping,
   });
-};
+}
 
 /**
  * 手机号加密（隐藏中间四位）
  * @param mobile
  */
-export const encryptMobile = (mobile: string) =>
-  mobile.replace(/^(\d{3})(\d{4})(\d{4})$/, "$1****$2");
+export function encryptMobile(mobile: string) {
+  return mobile.replace(/^(\d{3})(\d{4})(\d{4})$/, "$1****$2");
+}
+
+/**
+ * URL参数解析（反序列化）
+ * @param str
+ *
+ * 如需更多操作请使用第三方库：
+ * {@link https://www.npmjs.com/package/query-string query-string}
+ */
+export function queryStringParse(str: string) {
+  return queryString.parse(str, { parseNumbers: true, parseBooleans: true });
+}
+
+/**
+ * URL参数解析（序列化）
+ * @param obj
+ *
+ * 如需更多操作请使用第三方库：
+ * {@link https://www.npmjs.com/package/query-string query-string}
+ */
+export function queryStringStringify(obj: Record<string, any>) {
+  return queryString.stringify(obj, { arrayFormat: "bracket" });
+}

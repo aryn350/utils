@@ -1,7 +1,7 @@
 /**
  * setTimeout hook
  */
-export const useTimeout = () => {
+export function useTimeout() {
   let timer: NodeJS.Timer | null = null;
 
   const setTimer = (callback: () => void, timeout: number) => {
@@ -26,7 +26,7 @@ export const useTimeout = () => {
     /** 清空定时器 */
     clearTimer,
   };
-};
+}
 
 interface SetIntervalOptionsT {
   /** 是否立即执行 */
@@ -40,7 +40,7 @@ interface SetIntervalOptionsT {
 /**
  * setInterval hook
  */
-export const useInterval = () => {
+export function useInterval() {
   let timer: NodeJS.Timer | null = null;
 
   const setTimer = (
@@ -89,43 +89,44 @@ export const useInterval = () => {
     /** 清空定时器 */
     clearTimer,
   };
-};
+}
 
 /**
  * 睡眠函数
  * @param timeout
  */
-export const sleep = (timeout: number) =>
-  new Promise<null>(resolve => {
+export function sleep(timeout: number) {
+  return new Promise<null>(resolve => {
     const { setTimer } = useTimeout();
     setTimer(() => resolve(null), timeout);
   });
+}
 
 /**
  * 防抖函数
  * @param callback
  * @param timeout
  */
-export const debounce = (callback: (...args: any[]) => any, timeout = 300) => {
+export function debounce(callback: (...args: any[]) => any, timeout = 300) {
   const { setTimer, clearTimer } = useTimeout();
   return function (this: unknown, ...args: any[]) {
     clearTimer();
     setTimer(() => {
       callback.apply(this, [...args]);
-    }, Math.floor(timeout));
+    }, timeout);
   };
-};
+}
 
 /**
  * 节流函数
  * @param callback
  * @param timeout
  */
-export const throttle = (callback: (...args: any[]) => any, timeout = 300) => {
+export function throttle(callback: (...args: any[]) => any, timeout = 300) {
   const { timer, setTimer } = useTimeout();
   return function (this: unknown, ...args: any[]) {
     if (timer) return;
-    setTimer(() => null, Math.floor(timeout));
+    setTimer(() => null, timeout);
     callback.apply(this, [...args]);
   };
-};
+}

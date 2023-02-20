@@ -29,6 +29,7 @@
     "directory": "utils"
   },
   "dependencies": {
+    "query-string": "^8.1.0",
     "timezone-ids": "^1.0.0"
   },
   "devDependencies": {

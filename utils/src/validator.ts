@@ -4,50 +4,71 @@ import { REG_EXP } from "./constants";
  * 手机号验证
  * @param str
  */
-export const isMobile = (str: string) => REG_EXP.MOBILE.test(str);
+export function isMobile(str: string) {
+  return REG_EXP.MOBILE.test(str);
+}
 
 /**
  * 邮箱验证
  * @param str
  */
-export const isEmail = (str: string) => REG_EXP.EMAIL.test(str);
+export function isEmail(str: string) {
+  return REG_EXP.EMAIL.test(str);
+}
+
+/**
+ * URL验证
+ * @param str
+ */
+export function isUrl(str: string) {
+  return REG_EXP.URL.test(str);
+}
 
 /**
  * 数字验证
  * @param str
  */
-export const isNumber = (str: string) => REG_EXP.NUMBER.test(str);
+export function isNumber(str: string) {
+  return REG_EXP.NUMBER.test(str);
+}
 
 /**
  * 正整数验证
  * @param str
  */
-export const isInt = (str: string) => REG_EXP.INT.test(str);
+export function isInt(str: string) {
+  return REG_EXP.INT.test(str);
+}
 
 /**
  * 判断当前是否是苹果设备
  */
-export const isAppleDevice = () =>
-  /Apple|Safari|iOS|iPhone|iPad|iPod|Mac/i.test(navigator.userAgent);
+export function isAppleDevice() {
+  return /Apple|Safari|iOS|iPhone|iPad|iPod|Mac/i.test(navigator.userAgent);
+}
 
 /**
  * 判断当前是否是安卓设备
  */
-export const isAndroidDevice = () => /Android/i.test(navigator.userAgent);
+export function isAndroidDevice() {
+  return /Android/i.test(navigator.userAgent);
+}
 
 /**
  * 判断当前是否是移动设备
  */
-export const isMobileDevice = () =>
-  /mobile|iPhone|iPad|iPod|iOS|Android|adr|Windows Phone|SymbianOS/i.test(
+export function isMobileDevice() {
+  return /mobile|iPhone|iPad|iPod|iOS|Android|adr|Windows Phone|SymbianOS/i.test(
     navigator.userAgent
   );
+}
 
 /**
  * 判断当前是否是微信浏览器
  */
-export const isWechatBrowser = () =>
-  /MicroMessenger/i.test(navigator.userAgent);
+export function isWechatBrowser() {
+  return /MicroMessenger/i.test(navigator.userAgent);
+}
 
 /**
  * 版本号对比
@@ -58,7 +79,7 @@ export const isWechatBrowser = () =>
  * * 0 相等
  * * -1 前者小于后者
  */
-export const compareVersion = (version1: string, version2: string) => {
+export function compareVersion(version1: string, version2: string) {
   const arr1 = version1.split(".").map(item => Number.parseInt(item));
   const arr2 = version2.split(".").map(item => Number.parseInt(item));
   const length = Math.max(arr1.length, arr2.length);
@@ -69,36 +90,44 @@ export const compareVersion = (version1: string, version2: string) => {
     if (item1 < item2) return -1;
   }
   return 0;
-};
+}
 
 /**
  * 判断是否是图片
  * @param filename 文件名
  */
-export const isImage = (filename: string) =>
-  /\.(png|jpg|jpeg|gif|bmp|webp)$/i.test(filename);
+export function isImage(filename: string) {
+  return /\.(png|jpg|jpeg|gif|bmp|webp)$/i.test(filename);
+}
 
 /**
  * 判断是否是视频
  * @param filename 文件名
  */
-export const isVideo = (filename: string) =>
-  /\.(mp4|mov|m4v|3gp|rmvb|mkv|wmv|flv|avi)$/i.test(filename);
+export function isVideo(filename: string) {
+  return /\.(mp4|mov|m4v|3gp|rmvb|mkv|wmv|flv|avi)$/i.test(filename);
+}
 
 /**
  * 判断是否是PDF
  * @param filename 文件名
  */
-export const isPdf = (filename: string) => /\.(pdf)$/i.test(filename);
+export function isPdf(filename: string) {
+  return /\.(pdf)$/i.test(filename);
+}
 
 /**
  * 判断是否是Word
  * @param filename 文件名
  */
-export const isWord = (filename: string) => /\.(doc|docx)$/i.test(filename);
+export function isWord(filename: string) {
+  return /\.(doc|docx)$/i.test(filename);
+}
 
 /**
  * 判断是否是Excel
  * @param filename 文件名
  */
-export const isExcel = (filename: string) => /\.(xls|xlsx)$/i.test(filename);
+export function isExcel(filename: string) {
+  return /\.(xls|xlsx)$/i.test(filename);
+}

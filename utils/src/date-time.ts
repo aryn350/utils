@@ -1,8 +1,5 @@
 import { isValidTimeZoneId } from "timezone-ids";
-import type { TimeZoneId } from "timezone-ids";
-
-/** IANA时区标识 */
-export type TimezoneKeyT = TimeZoneId;
+import type { TimezoneKeyT } from "./constants";
 
 interface FormatDateTimeOptionsT {
   /** 日期连接符 */
@@ -31,10 +28,10 @@ interface FormatDateTimeOptionsT {
  * {@link https://www.npmjs.com/package/date-fns-tz date-fns-tz}、
  * {@link https://www.npmjs.com/package/moment moment}
  */
-export const formatDateTime = (
+export function formatDateTime(
   dateTime = new Date(),
   options: FormatDateTimeOptionsT
-) => {
+) {
   const {
     dateJoiner = "-",
     timeJoiner = ":",
@@ -62,14 +59,16 @@ export const formatDateTime = (
   if (hideDate) return time;
   if (hideTime) return date;
   return `${date} ${time}`;
-};
+}
 
 /**
  * 获取本地时区
  *
  * 负数为东区，正数为西区
  */
-export const getLocalTimezone = () => new Date().getTimezoneOffset() / 60;
+export function getLocalTimezone() {
+  return new Date().getTimezoneOffset() / 60;
+}
 
 /**
  * 秒/毫秒互相转换
@@ -78,21 +77,22 @@ export const getLocalTimezone = () => new Date().getTimezoneOffset() / 60;
  * * s_to_ms 秒转换成毫秒
  * * ms_to_s 毫秒转换成秒
  */
-export const transTimestamp = (
+export function transTimestamp(
   timestamp: number,
   method: "s_to_ms" | "ms_to_s"
-) => {
+) {
   if (timestamp <= 0) return 0;
   const mapping: Record<typeof method, number> = {
     s_to_ms: Math.floor(timestamp * 1000),
     ms_to_s: Math.floor(timestamp / 1000),
   };
   return mapping[method];
-};
+}
 
 /**
  * 验证是否是IANA时区标识
  * @param timezone
  */
-export const checkTimezoneKey = (timezone: string) =>
-  isValidTimeZoneId(timezone);
+export function checkTimezoneKey(timezone: string) {
+  return isValidTimeZoneId(timezone);
+}
