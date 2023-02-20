@@ -1,7 +1,8 @@
+import { isValidTimeZoneId } from "timezone-ids";
 import { REG_EXP } from "./constants";
 
 /**
- * 手机号验证
+ * 验证是否是手机号
  * @param str
  */
 export function isMobile(str: string) {
@@ -9,7 +10,7 @@ export function isMobile(str: string) {
 }
 
 /**
- * 邮箱验证
+ * 验证是否是邮箱
  * @param str
  */
 export function isEmail(str: string) {
@@ -17,7 +18,7 @@ export function isEmail(str: string) {
 }
 
 /**
- * URL验证
+ * 验证是否是URL
  * @param str
  */
 export function isUrl(str: string) {
@@ -25,7 +26,29 @@ export function isUrl(str: string) {
 }
 
 /**
- * 数字验证
+ * 验证是否是字母
+ * @param str
+ * @param letterCase 区分大小写的方式
+ * * undefined 不区分大小写
+ * * LOWER_CASE 全小写
+ * * UPPER_CASE 全大写
+ */
+export function isLetter(
+  str: string,
+  letterCase?: "LOWER_CASE" | "UPPER_CASE"
+) {
+  switch (letterCase) {
+    case "LOWER_CASE":
+      return REG_EXP.LOWER_CASE_LETTER.test(str);
+    case "UPPER_CASE":
+      return REG_EXP.UPPER_CASE_LETTER.test(str);
+    default:
+      return REG_EXP.LETTER.test(str);
+  }
+}
+
+/**
+ * 验证是否是数字
  * @param str
  */
 export function isNumber(str: string) {
@@ -33,11 +56,27 @@ export function isNumber(str: string) {
 }
 
 /**
- * 正整数验证
+ * 验证是否是正整数
  * @param str
  */
 export function isInt(str: string) {
   return REG_EXP.INT.test(str);
+}
+
+/**
+ * 验证是否是汉字
+ * @param str
+ */
+export function isChinese(str: string) {
+  return REG_EXP.CHINESE.test(str);
+}
+
+/**
+ * 验证是否是IANA时区标识
+ * @param timezone
+ */
+export function isTimezoneKey(timezone: string) {
+  return isValidTimeZoneId(timezone);
 }
 
 /**

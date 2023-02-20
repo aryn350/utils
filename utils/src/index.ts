@@ -14,23 +14,19 @@ export { useTimeout, useInterval, sleep, debounce, throttle } from "./timeout";
 
 export { getRandom } from "./math";
 
-export {
-  formatPrice,
-  encryptMobile,
-  queryStringParse,
-  queryStringStringify,
-} from "./format";
+export { formatPrice, encryptMobile } from "./format";
 
-export {
-  formatDateTime,
-  getLocalTimezone,
-  checkTimezoneKey,
-} from "./date-time";
+export { formatDateTime, getLocalTimezone } from "./date-time";
 
 export {
   isMobile,
   isEmail,
   isUrl,
+  isLetter,
+  isNumber,
+  isInt,
+  isChinese,
+  isTimezoneKey,
   isAppleDevice,
   isAndroidDevice,
   isMobileDevice,

@@ -1,4 +1,3 @@
-import { isValidTimeZoneId } from "timezone-ids";
 import type { TimezoneKeyT } from "./constants";
 
 interface FormatDateTimeOptionsT {
@@ -87,12 +86,4 @@ export function transTimestamp(
     ms_to_s: Math.floor(timestamp / 1000),
   };
   return mapping[method];
-}
-
-/**
- * 验证是否是IANA时区标识
- * @param timezone
- */
-export function checkTimezoneKey(timezone: string) {
-  return isValidTimeZoneId(timezone);
 }

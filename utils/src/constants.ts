@@ -8,10 +8,18 @@ export const REG_EXP = {
   EMAIL: /^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]{1,20}\.[a-zA-Z0-9]{1,20}$/i,
   /** URL */
   URL: /^((((ht|f)tps?)|(ws)):\/\/)?(www\.)?[a-z0-9-_]+\.[a-z0-9-_]+((\/[a-z0-9-_]+)+)?((\/[a-z0-9-_]+\.[a-z0-9-_]+)|\/)?$/g,
+  /** 字母 */
+  LETTER: /^[a-z]+$/gi,
+  /** 小写字母 */
+  LOWER_CASE_LETTER: /^[a-z]+$/g,
+  /** 大写字母 */
+  UPPER_CASE_LETTER: /^[A_Z]$/g,
   /** 数字 */
   NUMBER: /^\d+(\.\d+)?$/,
   /** 正整数 */
   INT: /^\d+$/,
+  /** 汉字 */
+  CHINESE: /^[\u4E00-\u9FA5]+$/g,
 };
 
 /**

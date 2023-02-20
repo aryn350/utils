@@ -1,4 +1,3 @@
-import queryString from "query-string";
 import type { CurrencyT } from "./constants";
 
 interface FormatPriceOptionsT {
@@ -57,26 +56,4 @@ export function formatPrice(price: number, options?: FormatPriceOptionsT) {
  */
 export function encryptMobile(mobile: string) {
   return mobile.replace(/^(\d{3})(\d{4})(\d{4})$/, "$1****$2");
-}
-
-/**
- * URL参数解析（反序列化）
- * @param str
- *
- * 如需更多操作请使用第三方库：
- * {@link https://www.npmjs.com/package/query-string query-string}
- */
-export function queryStringParse(str: string) {
-  return queryString.parse(str, { parseNumbers: true, parseBooleans: true });
-}
-
-/**
- * URL参数解析（序列化）
- * @param obj
- *
- * 如需更多操作请使用第三方库：
- * {@link https://www.npmjs.com/package/query-string query-string}
- */
-export function queryStringStringify(obj: Record<string, any>) {
-  return queryString.stringify(obj, { arrayFormat: "bracket" });
 }
