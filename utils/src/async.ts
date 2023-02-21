@@ -130,3 +130,30 @@ export function throttle(callback: (...args: any[]) => any, timeout = 300) {
     callback.apply(this, [...args]);
   };
 }
+
+interface AsyncTaskT<ResultT> {
+  (param?: ResultT): Promise<ResultT>;
+}
+
+/**
+ * 顺序执行异步队列，并将当前任务结果传递给下一个任务
+ * @param tasks 任务列表
+ */
+export function execAsyncQueue<ResultT>(tasks: AsyncTaskT<ResultT>[]) {
+  return tasks.reduce(
+    (promise, task) => promise.then(res => task(res)),
+    Promise.resolve() as Promise<ResultT>
+  );
+}
+
+/**
+ * 重复执行异步任务
+ * @param task 任务
+ * @param count 重复次数
+ */
+export async function repeatAsyncTask<ResultT>(
+  task: AsyncTaskT<ResultT>,
+  count: number
+) {
+  return await execAsyncQueue<ResultT>(Array(count).fill(task));
+}

@@ -7,3 +7,9 @@ PS:
 js-cookie @types/js-cookie
 
 query-string
+
+lottie-web https://www.npmjs.com/package/lottie-web
+
+jwt-decode https://www.npmjs.com/package/jwt-decode
+
+motion

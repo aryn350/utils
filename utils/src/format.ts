@@ -1,6 +1,6 @@
 import type { CurrencyT } from "./constants";
 
-interface FormatPriceOptionsT {
+interface FormatNumberOptionsT {
   /** 货币 */
   currency?: CurrencyT;
   /** 保留小数位 */
@@ -17,13 +17,13 @@ interface FormatPriceOptionsT {
 }
 
 /**
- * 价格格式化
- * @param price
+ * 数字格式化
+ * @param value
  * @param options 配置选项
  *
  * 此函数仅提供适用于大部分场景的用法，如有个性化需求请自行实现。
  */
-export function formatPrice(price: number, options?: FormatPriceOptionsT) {
+export function formatNumber(value: number, options?: FormatNumberOptionsT) {
   const { currency, computeMode = "floor", useGrouping = true } = options ?? {};
   let { fractionDigits = 2 } = options ?? {};
   if (fractionDigits < 0) fractionDigits = 2;
@@ -38,10 +38,10 @@ export function formatPrice(price: number, options?: FormatPriceOptionsT) {
 
   if (computeMode !== "round") {
     const multiple = Math.pow(10, fractionDigits);
-    price = Math[computeMode](price * multiple) / multiple;
+    value = Math[computeMode](value * multiple) / multiple;
   }
 
-  return price.toLocaleString(localMapping[currency ?? "CNY"], {
+  return value.toLocaleString(localMapping[currency ?? "CNY"], {
     style: currency ? "currency" : undefined,
     currency,
     minimumFractionDigits: fractionDigits,

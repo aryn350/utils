@@ -10,11 +10,19 @@ export {
   arraySort,
 } from "./array";
 
-export { useTimeout, useInterval, sleep, debounce, throttle } from "./timeout";
+export {
+  useTimeout,
+  useInterval,
+  sleep,
+  debounce,
+  throttle,
+  execAsyncQueue,
+  repeatAsyncTask,
+} from "./async";
 
-export { getRandom } from "./math";
+export { random, sum, average, isEven } from "./math";
 
-export { formatPrice, encryptMobile } from "./format";
+export { formatNumber, encryptMobile } from "./format";
 
 export { formatDateTime, getLocalTimezone } from "./date-time";
 
@@ -43,6 +51,13 @@ export {
   hasClass,
   addClass,
   removeClass,
+  scrollToTop,
+  scrollToBottom,
+  scrollToLeft,
+  scrollToRight,
+  scrollToPosition,
+  requestFullscreen,
+  exitFullscreen,
   callPhone,
   copyText,
   readClipboard,

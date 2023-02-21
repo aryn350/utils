@@ -3,8 +3,7 @@ import {
   isEmail,
   compareVersion,
   isImage,
-  formatPrice,
-  getRandom,
+  formatNumber,
 } from "@/index";
 
 describe("validator测试", () => {
@@ -26,15 +25,9 @@ describe("validator测试", () => {
 });
 
 describe("format测试", () => {
-  test("formatPrice", () => {
+  test("formatNumber", () => {
     expect(
-      formatPrice(99326752.2999, { currency: "CNY", fractionDigits: 3 })
+      formatNumber(99326752.2999, { currency: "CNY", fractionDigits: 3 })
     ).toBe("¥99,326,752.299");
-  });
-});
-
-describe("math测试", () => {
-  test("getRandom", () => {
-    expect(getRandom(1, 10)).toBe(1);
   });
 });
