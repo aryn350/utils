@@ -4,4 +4,6 @@ services:
     image: node:18.0.0-slim
     volumes:
       - ./utils:/workspaces/utils
+      - ./browser-utils:/workspaces/browser-utils
+      - ./node-utils:/workspaces/node-utils
     tty: true
