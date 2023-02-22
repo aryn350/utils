@@ -1,11 +1,11 @@
 {
-  "name": "@increaseone/utils",
-  "version": "0.0.3",
+  "name": "@aryn350/utils",
+  "version": "1.0.0",
   "keywords": [
-    "utils",
-    "increaseone"
+    "aryn350",
+    "utils"
   ],
-  "author": "zengdian/linza",
+  "author": "aryn350",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
@@ -20,12 +20,9 @@
     "/src",
     "README.md"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IncreaseOne/npm-packages.git",
+    "url": "https://github.com/aryn350/npm-packages.git",
     "directory": "utils"
   },
   "dependencies": {

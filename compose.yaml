@@ -1,0 +1,7 @@
+version: "3"
+services:
+  ts-utils:
+    image: node:18.0.0-slim
+    volumes:
+      - ./utils:/workspaces/utils
+    tty: true

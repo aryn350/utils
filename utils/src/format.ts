@@ -1,4 +1,4 @@
-import type { CurrencyT } from "./constants";
+import type { LocalsT, CurrencyT } from "./constants";
 
 interface FormatNumberOptionsT {
   /** 货币 */
@@ -28,7 +28,7 @@ export function formatNumber(value: number, options?: FormatNumberOptionsT) {
   let { fractionDigits = 2 } = options ?? {};
   if (fractionDigits < 0) fractionDigits = 2;
 
-  const localMapping: Record<CurrencyT, string> = {
+  const localMapping: Record<CurrencyT, LocalsT> = {
     CNY: "zh-CN",
     USD: "en-US",
     EUR: "de-DE",

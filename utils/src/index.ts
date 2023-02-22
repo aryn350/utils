@@ -1,5 +1,10 @@
 export { REG_EXP, CURRENCY } from "./constants";
-export type { OrderByT, TimezoneKeyT, CurrencyT } from "./constants";
+export type {
+  ContentTypeT,
+  OrderByT,
+  TimezoneKeyT,
+  CurrencyT,
+} from "./constants";
 
 export { deepClone } from "./object";
 
@@ -46,19 +51,3 @@ export {
   isWord,
   isExcel,
 } from "./validator";
-
-export {
-  hasClass,
-  addClass,
-  removeClass,
-  scrollToTop,
-  scrollToBottom,
-  scrollToLeft,
-  scrollToRight,
-  scrollToPosition,
-  requestFullscreen,
-  exitFullscreen,
-  callPhone,
-  copyText,
-  readClipboard,
-} from "./dom";

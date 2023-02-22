@@ -22,6 +22,17 @@ export const REG_EXP = {
   CHINESE: /^[\u4E00-\u9FA5]+$/g,
 };
 
+/** Content-Type */
+export type ContentTypeT =
+  | "text/plain"
+  | "text/html"
+  | "text/css"
+  | "application/xml"
+  | "application/javascript"
+  | "application/json"
+  | "application/x-www-form-urlencoded"
+  | "multipart/form-data";
+
 /**
  * 排序
  * * ASC 升序
@@ -31,6 +42,9 @@ export type OrderByT = "ASC" | "DESC";
 
 /** IANA时区标识 */
 export type TimezoneKeyT = TimeZoneId;
+
+/** 语言标识 */
+export type LocalsT = "zh-CN" | "en-US" | "de-DE" | "en-GB" | "ja-JP";
 
 /** 货币标识 */
 export type CurrencyT = "CNY" | "USD" | "EUR" | "GBP" | "JPY";
