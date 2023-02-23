@@ -1,6 +1,75 @@
-### 通用工具类函数
+### 类型
+```typescript
+/** Content-Type */
+type ContentTypeT = "text/plain" | "text/html" | "text/css" | "application/xml" | "application/javascript" | "application/json" | "application/x-www-form-urlencoded" | "multipart/form-data";
+
+/**
+ * 排序
+ * - ASC 升序
+ * - DESC 降序
+ */
+type OrderByT = "ASC" | "DESC";
+
+/** IANA时区标识 */
+import type { TimeZoneId } from "timezone-ids";
+type TimezoneKeyT = TimeZoneId;
+
+/** 语言标识 */
+type LocalsT = "zh-CN" | "en-US" | "de-DE" | "en-GB" | "ja-JP";
+
+/** 货币标识 */
+type CurrencyT = "CNY" | "USD" | "EUR" | "GBP" | "JPY"
+```
 
 ---
+
+### 常量
+
+#### 正则表达式
+```typescript
+const REG_EXP: {
+  /** 国内手机号 */
+  MOBILE: RegExp;
+  /** 邮箱 */
+  EMAIL: RegExp;
+  /** URL */
+  URL: RegExp;
+  /** 字母 */
+  LETTER: RegExp;
+  /** 小写字母 */
+  LOWER_CASE_LETTER: RegExp;
+  /** 大写字母 */
+  UPPER_CASE_LETTER: RegExp;
+  /** 数字 */
+  NUMBER: RegExp;
+  /** 整数 */
+  INT: RegExp;
+  /** 汉字 */
+  CHINESE: RegExp;
+  /** 文件名 */
+  FILENAME: {
+    /** 图片 */
+    IMAGE: RegExp;
+    /** 视频 */
+    VIDEO: RegExp;
+    /** PDF */
+    PDF: RegExp;
+    /** Word */
+    WORD: RegExp;
+    /** Excel */
+    EXCEL: RegExp;
+  };
+};
+```
+
+#### 货币符号
+```typescript
+const CURRENCY: Record<CurrencyT, string>;
+```
+
+---
+
+### 通用工具类函数
 
 #### 对象深拷贝
 ```typescript
@@ -37,13 +106,6 @@ function arrayDifference(arr1: LinearArrayItemT[], arr2: LinearArrayItemT[]): Li
 
 #### 一维数组排序
 ```typescript
-/**
- * 排序
- * - ASC 升序
- * - DESC 降序
- */
-type OrderByT = "ASC" | "DESC";
-
 /**
  * @param orderBy 排序方式
  * @default "ASC"
