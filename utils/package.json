@@ -1,6 +1,7 @@
 {
   "name": "@aryn350/utils",
-  "version": "0.0.3",
+  "version": "1.0.1",
+  "description": "通用工具类函数",
   "keywords": [
     "aryn350",
     "utils"

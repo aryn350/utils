@@ -29,7 +29,7 @@ export function copyText(value: string) {
 }
 
 /**
- * 读取剪贴板文本（需要浏览器开启读取权限）
+ * 读取剪贴板文本（浏览器需开启读取权限）
  */
 export async function readClipboard() {
   if (!navigator.clipboard) {

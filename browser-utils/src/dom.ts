@@ -34,7 +34,8 @@ export function removeClass($el: Element, className: string) {
 
 /**
  * 滚动到顶部
- * @param $el 滚动的元素，不传时默认滚动window
+ * @param $el 滚动的元素
+ * @default window
  */
 export function scrollToTop($el?: HTMLElement) {
   if ($el) {
@@ -46,7 +47,8 @@ export function scrollToTop($el?: HTMLElement) {
 
 /**
  * 滚动到底部
- * @param $el 滚动的元素，不传时默认滚动window
+ * @param $el 滚动的元素
+ * @default window
  */
 export function scrollToBottom($el?: HTMLElement) {
   if ($el) {
@@ -61,7 +63,8 @@ export function scrollToBottom($el?: HTMLElement) {
 
 /**
  * 滚动到最左侧
- * @param $el 滚动的元素，不传时默认滚动window
+ * @param $el 滚动的元素
+ * @default window
  */
 export function scrollToLeft($el?: HTMLElement) {
   if ($el) {
@@ -73,7 +76,8 @@ export function scrollToLeft($el?: HTMLElement) {
 
 /**
  * 滚动到最右侧
- * @param $el 滚动的元素，不传时默认滚动window
+ * @param $el 滚动的元素
+ * @default window
  */
 export function scrollToRight($el?: HTMLElement) {
   if ($el) {
@@ -94,7 +98,8 @@ interface ScrollPositionT {
 /**
  * 滚动到指定位置
  * @param position 滚动的位置
- * @param $el 滚动的元素，不传时默认滚动window
+ * @param $el 滚动的元素
+ * @default window
  */
 export function scrollToPosition(position: ScrollPositionT, $el?: HTMLElement) {
   const { x = 0, y = 0 } = position;

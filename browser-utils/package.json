@@ -1,6 +1,7 @@
 {
   "name": "@aryn350/browser-utils",
-  "version": "0.0.1",
+  "version": "1.0.2",
+  "description": "浏览器环境工具类函数",
   "keywords": [
     "aryn350",
     "browser-utils",
@@ -17,7 +18,6 @@
   },
   "files": [
     "/dist",
-    "/src",
     "README.md"
   ],
   "repository": {
@@ -25,6 +25,7 @@
     "url": "https://github.com/aryn350/ts-utils.git",
     "directory": "browser-utils"
   },
+  "homepage": "https://github.com/aryn350/ts-utils/blob/main/browser-utils/README.md",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.0",
     "@rollup/plugin-typescript": "^11.0.0",

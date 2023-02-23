@@ -1,4 +1,4 @@
-export { openSmallWindow } from "./window";
+export { openUrlInSmallWindow } from "./window";
 
 export { hasHistory } from "./history";
 
