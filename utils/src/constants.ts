@@ -13,13 +13,26 @@ export const REG_EXP = {
   /** 小写字母 */
   LOWER_CASE_LETTER: /^[a-z]+$/g,
   /** 大写字母 */
-  UPPER_CASE_LETTER: /^[A_Z]$/g,
+  UPPER_CASE_LETTER: /^[A_Z]+$/g,
   /** 数字 */
-  NUMBER: /^\d+(\.\d+)?$/,
-  /** 正整数 */
-  INT: /^\d+$/,
+  NUMBER: /^-?\d+(\.\d+)?$/,
+  /** 整数 */
+  INT: /^-?\d+$/,
   /** 汉字 */
   CHINESE: /^[\u4E00-\u9FA5]+$/g,
+  /** 文件名 */
+  FILENAME: {
+    /** 图片 */
+    IMAGE: /\.(png|jpg|jpeg|gif|bmp|webp)$/i,
+    /** 视频 */
+    VIDEO: /\.(mp4|mov|m4v|3gp|rmvb|mkv|wmv|flv|avi)$/i,
+    /** PDF */
+    PDF: /\.pdf$/i,
+    /** Word */
+    WORD: /\.docx?$/i,
+    /** Excel */
+    EXCEL: /\.xlsx?$/i,
+  },
 };
 
 /** Content-Type */
@@ -35,8 +48,8 @@ export type ContentTypeT =
 
 /**
  * 排序
- * * ASC 升序
- * * DESC 降序
+ * - ASC 升序
+ * - DESC 降序
  */
 export type OrderByT = "ASC" | "DESC";
 

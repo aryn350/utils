@@ -9,6 +9,7 @@ export type {
 export { deepClone } from "./object";
 
 export {
+  arrayUnique,
   arrayUnion,
   arrayIntersect,
   arrayDifference,
@@ -32,22 +33,13 @@ export { formatNumber, encryptMobile } from "./format";
 export { formatDateTime, getLocalTimezone } from "./date-time";
 
 export {
-  isMobile,
-  isEmail,
-  isUrl,
-  isLetter,
-  isNumber,
-  isInt,
-  isChinese,
-  isTimezoneKey,
-  isAppleDevice,
-  isAndroidDevice,
-  isMobileDevice,
-  isWechatBrowser,
+  checkMobile,
+  checkEmail,
+  checkUrl,
+  checkLetter,
+  checkNumber,
+  checkChinese,
+  checkTimezoneKey,
+  checkFiletype,
   compareVersion,
-  isImage,
-  isVideo,
-  isPdf,
-  isWord,
-  isExcel,
 } from "./validator";

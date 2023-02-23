@@ -16,7 +16,7 @@ export function arrayUnique(arr: LinearArrayItemT[]) {
  * @param arr2
  */
 export function arrayUnion(arr1: LinearArrayItemT[], arr2: LinearArrayItemT[]) {
-  return Array.from(new Set([...arr1, arr2]));
+  return Array.from(new Set([...arr1, ...arr2]));
 }
 
 /**
@@ -47,10 +47,11 @@ export function arrayDifference(
  * 一维数组排序
  * @param arr
  * @param orderBy 排序方式
+ * @default "ASC"
  */
 export function arraySort(arr: number[], orderBy?: OrderByT): number[];
 export function arraySort(arr: string[], orderBy?: OrderByT): string[];
-export function arraySort(arr: string[] | number[], orderBy: OrderByT = "ASC") {
+export function arraySort(arr: number[] | string[], orderBy: OrderByT = "ASC") {
   if (arr.length <= 1) return arr;
 
   switch (typeof arr[0]) {

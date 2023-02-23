@@ -1,18 +1,27 @@
 import type { LocalsT, CurrencyT } from "./constants";
 
 interface FormatNumberOptionsT {
-  /** 货币 */
+  /**
+   * 货币
+   */
   currency?: CurrencyT;
-  /** 保留小数位 */
+  /**
+   * 保留小数位
+   * @default 2
+   */
   fractionDigits?: number;
   /**
    * 保留小数位时采用的计算规则
-   * * floor 向下取整（默认）
-   * * round 四舍五入
-   * * ceil 向上取整
-   * */
+   * - "floor" 向下取整
+   * - "round" 四舍五入
+   * - "ceil" 向上取整
+   * @default "floor"
+   */
   computeMode?: keyof Pick<typeof Math, "floor" | "round" | "ceil">;
-  /** 是否使用逗号分隔符 */
+  /**
+   * 是否使用逗号分隔符
+   * @default true
+   */
   useGrouping?: boolean;
 }
 

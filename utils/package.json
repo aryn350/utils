@@ -1,6 +1,6 @@
 {
   "name": "@aryn350/utils",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "keywords": [
     "aryn350",
     "utils"
@@ -17,7 +17,6 @@
   },
   "files": [
     "/dist",
-    "/src",
     "README.md"
   ],
   "repository": {
@@ -25,6 +24,7 @@
     "url": "https://github.com/aryn350/ts-utils.git",
     "directory": "utils"
   },
+  "homepage": "https://github.com/aryn350/ts-utils/blob/main/utils/README.md",
   "dependencies": {
     "timezone-ids": "^1.0.0"
   },

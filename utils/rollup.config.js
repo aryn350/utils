@@ -11,13 +11,11 @@ export default defineConfig([
         dir: "dist",
         format: "cjs",
         entryFileNames: "[name].cjs",
-        sourcemap: true,
       },
       {
         dir: "dist",
         format: "esm",
         entryFileNames: "[name].mjs",
-        sourcemap: true,
       },
     ],
     plugins: [

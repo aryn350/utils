@@ -16,6 +16,13 @@ export {
   callPhone,
 } from "./dom";
 
+export {
+  isAppleDevice,
+  isAndroidDevice,
+  isMobileDevice,
+  isWechatBrowser,
+} from "./env";
+
 export { downloadFile } from "./file";
 
 export { copyText, readClipboard } from "./clipboard";

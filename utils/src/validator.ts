@@ -5,7 +5,7 @@ import { REG_EXP } from "./constants";
  * 验证是否是手机号
  * @param str
  */
-export function isMobile(str: string) {
+export function checkMobile(str: string) {
   return REG_EXP.MOBILE.test(str);
 }
 
@@ -13,7 +13,7 @@ export function isMobile(str: string) {
  * 验证是否是邮箱
  * @param str
  */
-export function isEmail(str: string) {
+export function checkEmail(str: string) {
   return REG_EXP.EMAIL.test(str);
 }
 
@@ -21,7 +21,7 @@ export function isEmail(str: string) {
  * 验证是否是URL
  * @param str
  */
-export function isUrl(str: string) {
+export function checkUrl(str: string) {
   return REG_EXP.URL.test(str);
 }
 
@@ -29,11 +29,12 @@ export function isUrl(str: string) {
  * 验证是否是字母
  * @param str
  * @param letterCase 区分大小写的方式
- * * undefined 不区分大小写
- * * LOWER_CASE 全小写
- * * UPPER_CASE 全大写
+ * - undefined 不区分
+ * - "LOWER_CASE" 全小写
+ * - "UPPER_CASE" 全大写
+ * @default undefined
  */
-export function isLetter(
+export function checkLetter(
   str: string,
   letterCase?: "LOWER_CASE" | "UPPER_CASE"
 ) {
@@ -50,24 +51,30 @@ export function isLetter(
 /**
  * 验证是否是数字
  * @param str
+ * @param precision 数字精度
+ * - undefined 不区分精度
+ * - "INT" 整型
+ * - "FLOAT" 浮点型
+ * @default undefined
  */
-export function isNumber(str: string) {
-  return REG_EXP.NUMBER.test(str);
-}
-
-/**
- * 验证是否是正整数
- * @param str
- */
-export function isInt(str: string) {
-  return REG_EXP.INT.test(str);
+export function checkNumber(str: string, precision?: "INT" | "FLOAT") {
+  const isNumber = REG_EXP.NUMBER.test(str);
+  if (!isNumber) return false;
+  switch (precision) {
+    case "INT":
+      return REG_EXP.INT.test(str);
+    case "FLOAT":
+      return !REG_EXP.INT.test(str);
+    default:
+      return isNumber;
+  }
 }
 
 /**
  * 验证是否是汉字
  * @param str
  */
-export function isChinese(str: string) {
+export function checkChinese(str: string) {
   return REG_EXP.CHINESE.test(str);
 }
 
@@ -75,38 +82,20 @@ export function isChinese(str: string) {
  * 验证是否是IANA时区标识
  * @param timezone
  */
-export function isTimezoneKey(timezone: string) {
+export function checkTimezoneKey(timezone: string) {
   return isValidTimeZoneId(timezone);
 }
 
 /**
- * 判断当前是否是苹果设备
+ * 通过文件名判断文件类型
+ * @param filename 文件名
+ * @param filetype 文件类型
  */
-export function isAppleDevice() {
-  return /Apple|Safari|iOS|iPhone|iPad|iPod|Mac/i.test(navigator.userAgent);
-}
-
-/**
- * 判断当前是否是安卓设备
- */
-export function isAndroidDevice() {
-  return /Android/i.test(navigator.userAgent);
-}
-
-/**
- * 判断当前是否是移动设备
- */
-export function isMobileDevice() {
-  return /mobile|iPhone|iPad|iPod|iOS|Android|adr|Windows Phone|SymbianOS/i.test(
-    navigator.userAgent
-  );
-}
-
-/**
- * 判断当前是否是微信浏览器
- */
-export function isWechatBrowser() {
-  return /MicroMessenger/i.test(navigator.userAgent);
+export function checkFiletype(
+  filename: string,
+  filetype: keyof typeof REG_EXP.FILENAME
+) {
+  return REG_EXP.FILENAME[filetype].test(filename);
 }
 
 /**
@@ -114,9 +103,9 @@ export function isWechatBrowser() {
  * @param version1
  * @param version2
  * @returns
- * * 1 前者大于后者
- * * 0 相等
- * * -1 前者小于后者
+ * - 1 前者大于后者
+ * - 0 相等
+ * - -1 前者小于后者
  */
 export function compareVersion(version1: string, version2: string) {
   const arr1 = version1.split(".").map(item => Number.parseInt(item));
@@ -129,44 +118,4 @@ export function compareVersion(version1: string, version2: string) {
     if (item1 < item2) return -1;
   }
   return 0;
-}
-
-/**
- * 判断是否是图片
- * @param filename 文件名
- */
-export function isImage(filename: string) {
-  return /\.(png|jpg|jpeg|gif|bmp|webp)$/i.test(filename);
-}
-
-/**
- * 判断是否是视频
- * @param filename 文件名
- */
-export function isVideo(filename: string) {
-  return /\.(mp4|mov|m4v|3gp|rmvb|mkv|wmv|flv|avi)$/i.test(filename);
-}
-
-/**
- * 判断是否是PDF
- * @param filename 文件名
- */
-export function isPdf(filename: string) {
-  return /\.(pdf)$/i.test(filename);
-}
-
-/**
- * 判断是否是Word
- * @param filename 文件名
- */
-export function isWord(filename: string) {
-  return /\.(doc|docx)$/i.test(filename);
-}
-
-/**
- * 判断是否是Excel
- * @param filename 文件名
- */
-export function isExcel(filename: string) {
-  return /\.(xls|xlsx)$/i.test(filename);
 }

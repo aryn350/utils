@@ -1,5 +1,5 @@
 /**
- * setTimeout hook
+ * setTimeout Hook
  */
 export function useTimeout() {
   let timer: NodeJS.Timer | null = null;
@@ -19,26 +19,41 @@ export function useTimeout() {
   };
 
   return {
-    /** 定时器实例 */
+    /**
+     * 定时器实例
+     */
     timer,
-    /** 设置定时器 */
+    /**
+     * 设置定时器（已设置自动清空机制）
+     */
     setTimer,
-    /** 清空定时器 */
+    /**
+     * 清空定时器
+     */
     clearTimer,
   };
 }
 
 interface SetIntervalOptionsT {
-  /** 是否立即执行 */
+  /**
+   * 是否立即执行
+   * @default false
+   */
   flush?: boolean;
-  /** 重复次数 */
-  repeatCount?: number;
-  /** 指定时间后中止定时器 */
+  /**
+   * 重复次数
+   * @default 0
+   */
+  count?: number;
+  /**
+   * 指定时间后中止定时器
+   * @default 0
+   */
   delay?: number;
 }
 
 /**
- * setInterval hook
+ * setInterval Hook
  */
 export function useInterval() {
   let timer: NodeJS.Timer | null = null;
@@ -49,19 +64,19 @@ export function useInterval() {
     options?: SetIntervalOptionsT
   ) => {
     const { flush = false } = options ?? {};
-    let { repeatCount = 0, delay = 0 } = options ?? {};
-    repeatCount = Math.floor(repeatCount);
+    let { count = 0, delay = 0 } = options ?? {};
+    count = Math.floor(count);
     delay = Math.floor(delay);
 
     const { setTimer: setTimeoutTimer, clearTimer: clearTimeoutTimer } =
       useTimeout();
 
-    const hasCount = repeatCount > 0;
+    const hasCount = count > 0;
     const exec = () => {
       callback();
       if (hasCount) {
-        repeatCount--;
-        if (repeatCount <= 0) {
+        count--;
+        if (count <= 0) {
           clearTimer();
           clearTimeoutTimer();
         }
@@ -82,11 +97,17 @@ export function useInterval() {
   };
 
   return {
-    /** 定时器实例 */
+    /**
+     * 定时器实例
+     */
     timer,
-    /** 设置定时器 */
+    /**
+     * 设置定时器
+     */
     setTimer,
-    /** 清空定时器 */
+    /**
+     * 清空定时器
+     */
     clearTimer,
   };
 }

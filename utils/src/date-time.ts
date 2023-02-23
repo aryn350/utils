@@ -1,17 +1,35 @@
 import type { TimezoneKeyT } from "./constants";
 
 interface FormatDateTimeOptionsT {
-  /** 日期连接符 */
+  /**
+   * 日期连接符
+   * @default "-"
+   */
   dateJoiner?: string;
-  /** 时间连接符 */
+  /**
+   * 时间连接符
+   * @default ":"
+   */
   timeJoiner?: string;
-  /** 是否隐藏日期 */
+  /**
+   * 是否隐藏日期
+   * @default false
+   */
   hideDate?: boolean;
-  /** 是否隐藏时间 */
+  /**
+   * 是否隐藏时间
+   * @default false
+   */
   hideTime?: boolean;
-  /** 是否隐藏秒数 */
+  /**
+   * 是否隐藏秒数
+   * @default false
+   */
   hideMinute?: boolean;
-  /** 时区 */
+  /**
+   * 时区
+   * @default "Asia/Shanghai"
+   */
   timezone?: TimezoneKeyT;
 }
 
@@ -62,8 +80,7 @@ export function formatDateTime(
 
 /**
  * 获取本地时区
- *
- * 负数为东区，正数为西区
+ * @returns 负数为东区，正数为西区
  */
 export function getLocalTimezone() {
   return new Date().getTimezoneOffset() / 60;
@@ -72,9 +89,9 @@ export function getLocalTimezone() {
 /**
  * 秒/毫秒互相转换
  * @param timestamp
- * @param method
- * * s_to_ms 秒转换成毫秒
- * * ms_to_s 毫秒转换成秒
+ * @param method 转换方式
+ * - "s_to_ms" 秒转换成毫秒
+ * - "ms_to_s" 毫秒转换成秒
  */
 export function transTimestamp(
   timestamp: number,

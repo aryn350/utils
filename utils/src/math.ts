@@ -1,7 +1,10 @@
 /**
  * 获取指定范围内的随机数
  * @param min
+ * @default 0
+ *
  * @param max
+ * @default 100
  */
 export function random(min = 0, max = 100) {
   min = Math.floor(min);
