@@ -32,7 +32,6 @@ export function checkUrl(str: string) {
  * - undefined 不区分
  * - "LOWER_CASE" 全小写
  * - "UPPER_CASE" 全大写
- * @default undefined
  */
 export function checkLetter(
   str: string,
@@ -55,7 +54,6 @@ export function checkLetter(
  * - undefined 不区分精度
  * - "INT" 整型
  * - "FLOAT" 浮点型
- * @default undefined
  */
 export function checkNumber(str: string, precision?: "INT" | "FLOAT") {
   const isNumber = REG_EXP.NUMBER.test(str);

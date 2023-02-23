@@ -346,7 +346,6 @@ function checkUrl(str: string): boolean;
  * - undefined 不区分
  * - "LOWER_CASE" 全小写
  * - "UPPER_CASE" 全大写
- * @default undefined
  */
 function checkLetter(str: string, letterCase?: "LOWER_CASE" | "UPPER_CASE"): boolean;
 ```
@@ -358,7 +357,6 @@ function checkLetter(str: string, letterCase?: "LOWER_CASE" | "UPPER_CASE"): boo
  * - undefined 不区分精度
  * - "INT" 整型
  * - "FLOAT" 浮点型
- * @default undefined
  */
 function checkNumber(str: string, precision?: "INT" | "FLOAT"): boolean;
 ```
@@ -375,21 +373,6 @@ function checkTimezoneKey(timezone: string): boolean;
 
 #### 通过文件名判断文件类型
 ```typescript
-const REG_EXP = {
-  FILENAME: {
-    /** 图片 */
-    IMAGE: /\.(png|jpg|jpeg|gif|bmp|webp)$/i,
-    /** 视频 */
-    VIDEO: /\.(mp4|mov|m4v|3gp|rmvb|mkv|wmv|flv|avi)$/i,
-    /** PDF */
-    PDF: /\.pdf$/i,
-    /** Word */
-    WORD: /\.docx?$/i,
-    /** Excel */
-    EXCEL: /\.xlsx?$/i,
-  },
-};
-
 /**
  * @param filename 文件名
  * @param filetype 文件类型
