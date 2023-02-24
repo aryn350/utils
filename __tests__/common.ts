@@ -1,4 +1,4 @@
-import { compareVersion, formatNumber } from "@/index";
+import { compareVersion, formatNumber } from "@/common/index";
 
 describe("validator测试", () => {
   test("compareVersion", () => {
