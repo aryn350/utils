@@ -1,4 +1,4 @@
-import type { TimezoneKeyT } from "./constants";
+import type { LocalsT, TimezoneKeyT } from "./constants";
 
 interface FormatDateTimeOptionsT {
   /**
@@ -25,7 +25,7 @@ interface FormatDateTimeOptionsT {
    * 是否隐藏秒数
    * @default false
    */
-  hideMinute?: boolean;
+  hideSeconds?: boolean;
   /**
    * 时区
    * @default "Asia/Shanghai"
@@ -34,8 +34,10 @@ interface FormatDateTimeOptionsT {
 }
 
 /**
- * 时间日期格式化
- * @param dateTime
+ * 日期时间格式化
+ * @param dateTime 日期时间
+ * @default new Date()
+ *
  * @param options 配置选项
  *
  * 此函数以性能优化为目的，仅提供基于原生的简易实现，在不依赖第三方库的情况下足以应对大部分日常使用场景。
@@ -47,28 +49,31 @@ interface FormatDateTimeOptionsT {
  */
 export function formatDateTime(
   dateTime = new Date(),
-  options: FormatDateTimeOptionsT
+  options?: FormatDateTimeOptionsT
 ) {
   const {
     dateJoiner = "-",
     timeJoiner = ":",
     hideDate = false,
     hideTime = false,
-    hideMinute = false,
+    hideSeconds = false,
     timezone = "Asia/Shanghai",
-  } = options;
+  } = options ?? {};
+
+  const locals: LocalsT = "zh-CN";
 
   const date = dateTime
-    .toLocaleDateString("zh-CN", {
+    .toLocaleDateString(locals, {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
       timeZone: timezone,
     })
     .replace(/\//g, dateJoiner);
+
   const time = dateTime
-    .toLocaleTimeString("zh-CN", {
-      timeStyle: hideMinute ? "short" : "medium",
+    .toLocaleTimeString(locals, {
+      timeStyle: hideSeconds ? "short" : "medium",
       timeZone: timezone,
     })
     .replace(/:/g, timeJoiner);

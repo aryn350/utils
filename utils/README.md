@@ -285,7 +285,7 @@ interface FormatDateTimeOptionsT {
    * 是否隐藏秒数
    * @default false
    */
-  hideMinute?: boolean;
+  hideSeconds?: boolean;
   /**
    * 时区
    * @default "Asia/Shanghai"
@@ -294,6 +294,9 @@ interface FormatDateTimeOptionsT {
 }
 
 /**
+ * @param dateTime 日期时间
+ * @default new Date()
+ *
  * @param options 配置选项
  *
  * 此函数以性能优化为目的，仅提供基于原生的简易实现，在不依赖第三方库的情况下足以应对大部分日常使用场景。
@@ -303,7 +306,7 @@ interface FormatDateTimeOptionsT {
  * {@link https://www.npmjs.com/package/date-fns-tz date-fns-tz}、
  * {@link https://www.npmjs.com/package/moment moment}
  */
-function formatDateTime(dateTime: Date | undefined, options: FormatDateTimeOptionsT): string;
+function formatDateTime(dateTime?: Date, options?: FormatDateTimeOptionsT): string
 ```
 
 #### 获取本地时区
