@@ -3,8 +3,6 @@
 npm install @aryn350/utils --save
 ```
 
----
-
 ## 使用
 ```typescript
 /** 前后端通用环境 */
@@ -13,8 +11,6 @@ import {} from "@aryn350/utils";
 /** 浏览器环境 */
 import {} from "@aryn350/utils/browser";
 ```
-
----
 
 ## `@aryn350/utils`
 
@@ -40,8 +36,6 @@ type LocalsT = "zh-CN" | "en-US" | "de-DE" | "en-GB" | "ja-JP";
 /** 货币标识 */
 type CurrencyT = "CNY" | "USD" | "EUR" | "GBP" | "JPY"
 ```
-
----
 
 ### 常量
 
@@ -86,8 +80,6 @@ const REG_EXP: {
 ```typescript
 const CURRENCY: Record<CurrencyT, string>;
 ```
-
----
 
 ### 工具类函数
 
@@ -414,8 +406,6 @@ function checkFiletype(filename: string, filetype: keyof typeof REG_EXP.FILENAME
 function compareVersion(version1: string, version2: string): 0 | 1 | -1;
 ```
 
----
-
 ## `@aryn350/utils/browser`
 
 #### 弹出浏览器小窗口打开指定链接
@@ -563,8 +553,6 @@ function copyText(value: string): Promise<null>;
 ```typescript
 function readClipboard(): Promise<string>;
 ```
-
----
 
 ## 其他库:
 
