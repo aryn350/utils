@@ -1,6 +1,6 @@
 version: "3"
 services:
-  ts-utils:
+  node:
     image: node:18.0.0-slim
     volumes:
       - ./:/workspaces

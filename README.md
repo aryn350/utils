@@ -1,3 +1,23 @@
+## 安装
+```
+npm install @aryn350/utils --save
+```
+
+---
+
+## 使用
+```typescript
+/** 前后端通用环境 */
+import {} from "@aryn350/utils";
+
+/** 浏览器环境 */
+import {} from "@aryn350/utils/browser";
+```
+
+---
+
+## `@aryn350/utils`
+
 ### 类型
 ```typescript
 /** Content-Type */
@@ -69,7 +89,7 @@ const CURRENCY: Record<CurrencyT, string>;
 
 ---
 
-### 通用工具类函数
+### 工具类函数
 
 #### 对象深拷贝
 ```typescript
@@ -396,7 +416,7 @@ function compareVersion(version1: string, version2: string): 0 | 1 | -1;
 
 ---
 
-### 浏览器环境工具类函数
+## `@aryn350/utils/browser`
 
 #### 弹出浏览器小窗口打开指定链接
 ```typescript
@@ -546,7 +566,7 @@ function readClipboard(): Promise<string>;
 
 ---
 
-### 其他库:
+## 其他库:
 
 #### Cookie操作
 [js-cookie](https://www.npmjs.com/package/js-cookie)、
